@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   registry:
-    image: eclipsebasyx/aas-registry:1.2.0
+    image: eclipsebasyx/aas-registry:1.5.0
     restart: always
     networks:
       default:
@@ -15,7 +15,7 @@ services:
       - basyxcontext_contextport=4000
       - basyxcontext_accesscontrolalloworigin=*
   aas:
-    image: eclipsebasyx/aas-server:1.2.0
+    image: eclipsebasyx/aas-server:1.5.0
     container_name: aas
     restart: always
     networks:
@@ -35,7 +35,7 @@ services:
     volumes:
       - ./config/aas:/usr/share/config
   aas-gui:
-    image: eclipsebasyx/aas-gui:v221024
+    image: eclipsebasyx/aas-gui:v230703
     container_name: aas-gui
     restart: always
     networks:
@@ -43,4 +43,4 @@ services:
         aliases:
           - aas-gui
     ports:
-      - 8080:8080
+      - 8080:3000
